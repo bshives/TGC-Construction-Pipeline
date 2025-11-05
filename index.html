@@ -19,9 +19,8 @@
       --bg-light: #f8f9fb;
       --text-dark: #1e1e1e;
 
-      /* Optional: image URLs for backgrounds */
-      --body-bg-image: url('https://static.wixstatic.com/media/4f7dd4_287444c05e214bba92f13e0dc2177c41~mv2.png');  /* e.g., url('your-background.jpg') */
-      --header-bg-image: url('https://static.wixstatic.com/media/4f7dd4_d05c939dec47458fa6367dd45bb71018~mv2.png'); /* e.g., url('your-header.jpg') */
+      --body-bg-image: url('https://static.wixstatic.com/media/4f7dd4_287444c05e214bba92f13e0dc2177c41~mv2.png');
+      --header-bg-image: url('https://static.wixstatic.com/media/4f7dd4_d05c939dec47458fa6367dd45bb71018~mv2.png');
     }
 
     body {
@@ -30,8 +29,6 @@
       color: var(--text-dark);
       margin: 0;
       padding: 0;
-
-      /* If you want a background image */
       background-image: var(--body-bg-image);
       background-size: cover;
       background-position: center;
@@ -45,8 +42,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-
-      /* Header background image flexibility */
       background-image: var(--header-bg-image);
       background-size: cover;
       background-position: center;
@@ -101,7 +96,7 @@
     .main-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      gap: 1.5rem;
       align-items: stretch;
     }
 
@@ -202,7 +197,9 @@
       color: var(--primary);
     }
 
+    /* GALLERY STYLES */
     .rendering-section {
+      position: relative;
       min-height: 300px;
       justify-content: center;
       align-items: center;
@@ -210,11 +207,49 @@
       padding: 0;
     }
 
-    .rendering-section img {
+    .gallery-slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    .gallery-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 16px;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 0.5rem 0.8rem;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 16px;
+      user-select: none;
+      z-index: 10;
+    }
+
+    .prev:hover, .next:hover {
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    .fade {
+      animation-name: fade;
+      animation-duration: 0.8s;
+    }
+
+    @keyframes fade {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
     }
 
     .map-section {
@@ -222,7 +257,7 @@
       overflow: hidden;
       min-height: 300px;
       padding: 0;
-      justify-content: center;  /* horizontal centering */
+      justify-content: center;
       align-items: center;
     }
 
@@ -313,7 +348,16 @@
           "LP Equity IRR":"X.XX%",
           "LP Equity MOIC":"X.XX%"
         },
-        rendering: "https://static.wixstatic.com/media/4f7dd4_e82f9d4224af4641b00144656586b6e6~mv2.jpg",
+        renderings: [
+          "https://static.wixstatic.com/media/4f7dd4_e82f9d4224af4641b00144656586b6e6~mv2.jpg",
+          "https://static.wixstatic.com/media/4f7dd4_211f83dc82b74d0cbb33e05090b6ae95~mv2.jpg",        
+  "https://static.wixstatic.com/media/4f7dd4_6956f29acd9943a98ef508f6b297806d~mv2.jpg", 
+  "https://static.wixstatic.com/media/4f7dd4_858698c9b4044ff1be91f1dc6df02742~mv2.jpg",
+          "https://static.wixstatic.com/media/4f7dd4_b61728bd36cc442a8576023e6c5c1142~mv2.jpg",    
+ "https://static.wixstatic.com/media/4f7dd4_d0f7ed8811ac4be58b681bd9266680fb~mv2.jpg", 
+  "https://static.wixstatic.com/media/4f7dd4_8faa73152d744c3d92f14fcacb85b2ea~mv2.jpg",  
+          "https://static.wixstatic.com/media/4f7dd4_ed69ee929d7e425983ab40921ada16d7~mv2.jpg"
+        ],
         mapUrl: "https://www.google.com/maps?q=39.610689,-104.703555&output=embed"
       },
       gallery: {
@@ -344,7 +388,16 @@
           "LP Equity IRR":"X.XX%",
           "LP Equity MOIC":"X.XX%"
         },
-        rendering: "https://static.wixstatic.com/media/4f7dd4_6ec713f816514d26bb24c011e5c6b9bf~mv2.png",
+        renderings: [
+          "https://static.wixstatic.com/media/4f7dd4_ddaaa008fcf1460cbad4b037adefe1f7~mv2.jpg",
+          "https://static.wixstatic.com/media/4f7dd4_fe7a265140ec46aabbb0cae9fc63a838~mv2.jpg",
+          "https://static.wixstatic.com/media/4f7dd4_9a66dbe0b95746039c771b9689f3adae~mv2.jpg",
+          "https://static.wixstatic.com/media/4f7dd4_9f5a3badcd81438b8fd818c67cd4ef27~mv2.jpg",
+          "https://static.wixstatic.com/media/4f7dd4_a14936e5290c414cac0650956f125827~mv2.jpg",
+          "https://static.wixstatic.com/media/4f7dd4_55e2b44ac1414a179de4d5b86e204509~mv2.jpg",
+          "https://static.wixstatic.com/media/4f7dd4_39b157c8536840d7800d340192c8a1d2~mv2.jpg",
+          "https://static.wixstatic.com/media/4f7dd4_c4758683a8984efda65a2000a77d2a7f~mv2.jpg"
+        ],
         mapUrl: "https://www.google.com/maps?q=39.575386,-104.732404&output=embed"
       },
       garrettForum: {
@@ -375,7 +428,14 @@
           "LP Equity IRR":"X.XX%",
           "LP Equity MOIC":"X.XX%"
         },
-        rendering: "https://static.wixstatic.com/media/4f7dd4_a6233a118bd84ca49aca871aa39d6971~mv2.png",
+        renderings: [
+          "https://static.wixstatic.com/media/4f7dd4_e229dd54914f4ae090f768893f35f5e5~mv2.png",
+          "https://static.wixstatic.com/media/4f7dd4_c1ae7f6295074c68b1688a4c7b555326~mv2.png",
+          "https://static.wixstatic.com/media/4f7dd4_d1c996ec27544b56872717d20c44a8b3~mv2.png",
+          "https://static.wixstatic.com/media/4f7dd4_2f8a9a6f450d4928a2796973509403e7~mv2.png",
+          "https://static.wixstatic.com/media/4f7dd4_3c6f66ca98884528955dac162c4c5df2~mv2.png",
+          "https://static.wixstatic.com/media/4f7dd4_db5e28d7005e4607a21fef07f92abf07~mv2.png"
+        ],
         mapUrl: "https://www.google.com/maps?q=26.630694,-81.794346&output=embed"
       }
     };
@@ -389,6 +449,8 @@
       option.textContent = projects[key].name;
       selector.appendChild(option);
     });
+
+    let slideIndex = 1;
 
     function renderProject(key) {
       const project = projects[key];
@@ -429,12 +491,40 @@
         metricsDiv.appendChild(card);
       });
 
-      // Rendering Image
+      // Rendering Gallery
       const renderingDiv = content.querySelector(".rendering-section");
-      renderingDiv.innerHTML = `<img src="${project.rendering}" alt="${project.name} Rendering">`;
+      renderingDiv.innerHTML = `
+        ${project.renderings.map((img, i) => `
+          <div class="gallery-slide fade">
+            <img src="${img}" alt="${project.name} Rendering ${i + 1}">
+          </div>
+        `).join('')}
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+      `;
 
       // Map
       content.querySelector(".map-section iframe").src = project.mapUrl;
+
+      // Gallery functionality
+      slideIndex = 1;
+      showSlides(slideIndex);
+
+      renderingDiv.querySelector(".prev").addEventListener("click", () => plusSlides(-1));
+      renderingDiv.querySelector(".next").addEventListener("click", () => plusSlides(1));
+    }
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+      const slides = document.querySelectorAll(".gallery-slide");
+      if (slides.length === 0) return;
+      if (n > slides.length) slideIndex = 1;
+      if (n < 1) slideIndex = slides.length;
+      slides.forEach(s => s.style.display = "none");
+      slides[slideIndex - 1].style.display = "block";
     }
 
     renderProject(selector.value || Object.keys(projects)[0]);
