@@ -1008,6 +1008,10 @@ states.forEach(state => {
   option.value = state;
   option.textContent = state;
   stateSelector.appendChild(option);
+  
+  // Add "All States" at the top
+stateSelector.innerHTML = `<option value="all" selected>All States</option>` + 
+                          states.map(state => `<option value="${state}">${state}</option>`).join('');
 });
     
     Object.keys(projects).forEach(key => {
