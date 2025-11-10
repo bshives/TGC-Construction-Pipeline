@@ -328,6 +328,18 @@ select[multiple], select {
       .financial-metrics {
         grid-template-columns: 1fr;
       }
+      
+      .dropdown-container {
+    flex-direction: column;
+    gap: 0.8rem; /* smaller spacing when stacked */
+    align-items: stretch;
+  }
+
+  .dropdown-container select {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+  }
     }
   </style>
 </head>
