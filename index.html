@@ -1067,8 +1067,13 @@ const projects = {
 const selector = document.getElementById("projectSelector");
 const content = document.getElementById("projectContent");
 
-// Populate state dropdown
-const states = [...new Set(Object.values(projects).map(p => p.state).filter(Boolean))];
+// Get unique states
+let states = [...new Set(Object.values(projects).map(p => p.state).filter(Boolean))];
+
+// Sort alphabetically
+states.sort((a, b) => a.localeCompare(b));
+
+// Populate the dropdown
 stateSelector.innerHTML = `<option value="all" selected>All States</option>` +
                           states.map(state => `<option value="${state}">${state}</option>`).join('');
 
